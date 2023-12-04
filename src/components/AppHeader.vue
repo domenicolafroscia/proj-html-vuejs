@@ -31,8 +31,6 @@ export default {
 
 header {
     border-bottom: 4px solid $hint-of-red;
-    z-index: 200;
-    position: fixed;
     width: 100%;
 
     .container {
