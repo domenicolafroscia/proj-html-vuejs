@@ -1,9 +1,10 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppHero from './components/AppHero.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
-  components: { AppHeader, AppHero },
+  components: { AppHeader, AppHero, AppMain },
   data() {
     return {
       itemsNav: [
@@ -23,6 +24,7 @@ export default {
 <template>
   <AppHeader :items="itemsNav"/>
   <AppHero />
+  <AppMain />
 </template>
 
 <style lang="scss">

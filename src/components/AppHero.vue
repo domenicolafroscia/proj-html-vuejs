@@ -22,6 +22,7 @@ export default {
                     img: 'client-logo-06.png'
                 },
             ],
+            icons: ['fa-ruler-combined','fa-gear', 'fa-book','fa-cart-shopping']
         };
     },
     methods: {
@@ -56,6 +57,9 @@ export default {
                 </ul>
             </div>
         </div>
+        <ul class="list-icon">
+            <li class="icon" v-for="icon in icons"><a href=""><i :class="`fa-solid ${icon}`"></i></a></li>
+        </ul>
     </div>
 </template>
 
@@ -89,6 +93,10 @@ export default {
                 border-radius: 5px;
                 color: $white;
                 cursor: pointer;
+
+                &:hover {
+                    background-color: $gun-powder;
+                }
             }
 
             a {
@@ -146,6 +154,26 @@ export default {
             li {
                 margin: 0 3rem;
                 filter: grayscale(100%);
+            }
+        }
+    }
+
+    .list-icon {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 5px;
+        background-color: $white;
+        border-top: 3px solid $hint-of-red;
+        border-left: 3px solid $hint-of-red;
+        border-bottom: 3px solid $hint-of-red;
+        height: 100%;
+
+        .icon {
+            
+            i {
+                color: $cod-gray;
             }
         }
     }
