@@ -1,4 +1,6 @@
 <script>
+import AppCard from './AppCard.vue';
+
 export default {
     data() {
         return {
@@ -9,7 +11,6 @@ export default {
                     title: 'Learning to Write as a Professional Author',
                     lessons: '20 Lessons',
                     students: '50 Students',
-
                 },
                 {
                     img: 'stock-full-hd-03-480x298.jpg',
@@ -66,6 +67,51 @@ export default {
                     description: 'We provide study materials with various formats: video, audio, slide, doc, prints, books and applications.',
                     link: 'Start now'
                 },
+            ],
+            topLearners: [
+                {
+                    title: "It's a choice of quality for people with special needs",
+                    declaration: "I'm a very strict person so I require everything to be organized and neat. Then, I'll be able to make thinghs right and shine. MaxCoach guys just got me",
+                    img: 'src/assets/img/testimonial-avata-03.jpg',
+                    name: 'FLORENCE THEMES',
+                    task: 'Multimedia Admin'
+                },
+                {
+                    title: 'High level of efficiency and scientific teaching methods',
+                    declaration: 'I am free to learn at my own pace, follow on my own schedule and choose the subject I want to learn from the syllabus. Great study portal for people like me.',
+                    img: 'src/assets/img/testimonial-avata-02.jpg',
+                    name: 'MINA HOLLACE',
+                    task: 'Freelancer'
+                },
+                {
+                    title: 'Professional team of specialists and passionate mentors at reach',
+                    declaration: 'I need to get a certification for English proficiency and MaxCoach is my best choice. Their tutors are smart and professional when dealing with students.',
+                    img: 'src/assets/img/testimonial-avata-04.jpg',
+                    name: 'MADLEY PONDOR',
+                    task: 'IT Specialist'
+                },
+            ],
+            results: [
+                {
+                    name: 'Successfully trained',
+                    numbers: '1790',
+                    objects: 'ENROLLED LEARNERS',
+                },
+                {
+                    name: 'Proudly Received',
+                    numbers: '19',
+                    objects: 'COUNTRYWIDE AWARDS',
+                },
+                {
+                    name: 'Firmly Estabilished',
+                    numbers: '24',
+                    objects: 'LOCAL BRANCHES',
+                },
+                {
+                    name: 'Getting Featured on',
+                    numbers: '1090',
+                    objects: 'BLOG POSTS',
+                },
             ]
         };
     },
@@ -74,6 +120,7 @@ export default {
             return new URL(`../assets/img/${img}`, import.meta.url).href;
         },
     },
+    components: { AppCard }
 };
 </script>
 
@@ -89,7 +136,9 @@ export default {
                     <img :src="getImagePath(course.img)" alt="">
                     <div class="details">
                         <h3>{{ course.price }}</h3>
-                        <a href=""><h4>{{ course.title }}</h4></a>
+                        <a href="">
+                            <h4>{{ course.title }}</h4>
+                        </a>
                         <span><i class="fa-solid fa-file-lines"></i>{{ course.lessons }}</span>
                         <span><i class="fa-regular fa-user"></i>{{ course.students }}</span>
                     </div>
@@ -101,36 +150,40 @@ export default {
 
 
     <section class="section-2">
-        <div class="container">
-            <div class="titles">
-                <p>MAXCOACH AVAILABLE COURSES</p>
-                <h2>Access <a class="title-green" href="">Smart Tutoring</a> Program For Benefits.</h2>
-            </div>
-            <div class="row">
-                <div class="col" v-for="(program, index) in programCourses" :key="index">
-                    <img :src="getImagePath(program.img)" alt="">
-                    <div class="description">
-                        <h3>{{ program.title }}</h3>
-                        <p>{{ program.description }}</p>
-                        <span><strong><a href="">{{ program.link }} &rightarrow;</a></strong></span>
+        <div class="background">
+            <div class="container">
+                <div class="titles">
+                    <p>MAXCOACH AVAILABLE COURSES</p>
+                    <h2>Access <a class="title-green" href="">Smart Tutoring</a> Program For Benefits.</h2>
+                </div>
+                <div class="row">
+                    <div class="col" v-for="(program, index) in programCourses" :key="index">
+                        <img :src="getImagePath(program.img)" alt="">
+                        <div class="description">
+                            <h3>{{ program.title }}</h3>
+                            <p>{{ program.description }}</p>
+                            <span><strong><a href="">{{ program.link }} &rightarrow;</a></strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="enjoy">
+                    <div class="img-enjoy">
+                        <img class="popup" src="../assets/img/home-2-popup-video-poster.jpg" alt="">
+                        <a href=""><img class="hover-1" src="../assets/img/icon-youtube-play.png" alt=""></a>
+                        <img class="hover-2" src="../assets/img/maxcoach-shape-05-100x100.png" alt="">
+                        <img class="hover-3" src="../assets/img/maxcoach-shape-07-100x100.png" alt="">
+                    </div>
+                    <div class="description-enjoy">
+                        <p>GET STARTED <span>EFFORTLESSLY</span></p>
+                        <h2>Enjoy Our <a class="title-green" href="">Companionship</a></h2>
+                        <p>Sneek peek into what has in store for you on our online teaching and mentoring portal. Seek for
+                            some hidden hints of early-bird rewards as well.</p>
+                        <p class="download"><a class="title-green" href="">Download free guidebook &rightarrow;</a></p>
                     </div>
                 </div>
             </div>
-            <div class="enjoy">
-                <div class="img-enjoy">
-                    <img class="popup" src="../assets/img/home-2-popup-video-poster.jpg" alt="">
-                    <a href=""><img class="hover-1" src="../assets/img/icon-youtube-play.png" alt=""></a>
-                    <img class="hover-2" src="../assets/img/maxcoach-shape-05-100x100.png" alt="">
-                    <img class="hover-3" src="../assets/img/maxcoach-shape-07-100x100.png" alt="">
-                </div>
-                <div class="description-enjoy">
-                    <p>GET STARTED <span>EFFORTLESSLY</span></p>
-                    <h2>Enjoy Our <a class="title-green" href="">Companionship</a></h2>
-                    <p>Sneek peek into what has in store for you on our online teaching and mentoring portal. Seek for some hidden hints of early-bird rewards as well.</p>
-                    <p class="download"><a class="title-green" href="">Download free guidebook &rightarrow;</a></p>
-                </div>
-            </div>
         </div>
+
     </section>
 
 
@@ -140,182 +193,244 @@ export default {
                 <p>GREAT WORDS ABOUT MAXCOACH</p>
                 <h2>Our <a class="title-green" href="">top learners'</a> verbatim</h2>
             </div>
+            <div class="row">
+                <div class="col" v-for="(top, index) in topLearners" :key="index">
+                    <AppCard :title="top.title" :declaration="top.declaration" :img="top.img" :name="top.name"
+                        :task="top.task" />
+                </div>
+            </div>
+            <div class="titles">
+                <p><strong>Start today for getting <a class="title-green" href="">Online Certification</a></strong></p>
+                <h2>You can be your own guilding star with our help!</h2>
+                <div class="btn"><button>Get started now &rightarrow;</button></div>
+                <img class="decoration" src="../assets/img/maxcoach-shape-01.png" alt="">
+                <img class="decoration-1" src="../assets/img/maxcoach-shape-02.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-4">
+        <div class="container">
+            <div class="row">
+                <div class="col" v-for="result in results" :key="result">
+                    <h3>{{ result.name }}</h3>
+                    <h2>{{ result.numbers }}</h2>
+                    <p>{{ result.objects }}</p>
+                </div>
+            </div>
         </div>
     </section>
 </template>
 
-<style scoped lang="scss"> 
-    @use "../style/partials/variables" as *;
-    @use "../style/partials/mixin" as *;
-    @import "@fortawesome/fontawesome-free/css/all.min.css";
+<style scoped lang="scss"> @use "../style/partials/variables" as *;
+ @use "../style/partials/mixin" as *;
+ @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 
-    .section-1 {
-        background-color: $hint-of-red;
-        padding: 4rem 0;
+ .section-1 {
+     background-color: $hint-of-red;
+     padding: 4rem 0;
 
-        .row {
-            @include flex(row, center, stretch, wrap);
+     .row {
+         @include flex(row, center, stretch, wrap);
 
-            .col {
-                width: calc(100% / 2);
-                margin-top: 3rem;
-                display: flex;
-                align-items: center;
+         .col {
+             width: calc(100% / 2);
+             margin-top: 3rem;
+             display: flex;
+             align-items: center;
 
-                img {
-                    border-radius: 50%;
-                    width: 150px;
-                    height: 150px;
-                    margin-right: 1rem;
-                }
+             img {
+                 border-radius: 50%;
+                 width: 150px;
+                 height: 150px;
+                 margin-right: 1rem;
+                 object-fit: cover;
+             }
 
-                .details {
-                    
-                    h3 {
-                        color: $mountain-meadow;
-                    }
+             .details {
 
-                    h4 {
-                        color: $cod-gray;
-                        padding: 10px 0;
+                 h3 {
+                     color: $mountain-meadow;
+                 }
 
-                        &:hover {
-                            color: $mountain-meadow;
-                        }
-                    }
+                 h4 {
+                     color: $cod-gray;
+                     padding: 10px 0;
 
-                    span {
-                        color: $shady-lady;
-                        margin-right: 1rem;
+                     &:hover {
+                         color: $mountain-meadow;
+                     }
+                 }
 
-                        i {
-                            margin-right: .5rem;
-                            font-size: .8rem;
-                        }
-                    }
-                }
-            }
+                 span {
+                     color: $shady-lady;
+                     margin-right: 1rem;
 
-        }
+                     i {
+                         margin-right: .5rem;
+                         font-size: .8rem;
+                     }
+                 }
+             }
+         }
 
-        .btn {
-            text-align: center;
-            margin-top: 4rem;
+     }
 
-            button {
-                background-color: $mountain-meadow;
-                border: none;
-                padding: .8rem 3rem;
-                border-radius: 5px;
-                color: $white;
-                cursor: pointer;
-            }
-        }
-    }
+ }
 
 
-    .section-2 {
-        padding: 4rem 0;
-        
+ .section-2 {
+     background-color: $hint-of-red;
+
+    .background {
+        background-color: $white;
+        border-radius: 0 0 70% 0;
+        padding-bottom: 5rem;
 
         .row {
-            @include flex(row, center, stretch, nowrap);
-            margin-top: 4rem;
+         @include flex(row, center, stretch, nowrap);
+         margin-top: 4rem;
 
-            .col {
-                width: calc(100% / 3);
+         .col {
+             width: calc(100% / 3);
 
-                img {
-                    width: 140px;
-                }
+             img {
+                 width: 140px;
+             }
 
-                .description {
-                    padding-top: 1rem;
+             .description {
+                 padding-top: 1rem;
 
-                    p {
-                        padding: 1rem 0;
-                    }
+                 p {
+                     padding: 1rem 0;
+                 }
 
-                    a {
-                        color: $outer-space;
-                    }
-                }
-            
-            }
-        }
-        
-        .enjoy {
-            padding-top: 2rem;
-            display: flex;
-            align-items: center;
+                 a {
+                     color: $outer-space;
+                 }
+             }
+
+         }
+     }
+
+     .enjoy {
+         padding-top: 2rem;
+         display: flex;
+         align-items: center;
 
 
-            .img-enjoy {
-                position: relative;
-                .popup {
-                    width: 450px;
-                    position: relative;
-                    z-index: 2;
-                }
+         .img-enjoy {
+             position: relative;
 
-                .hover-1, .hover-2, .hover-3 {
-                    position: absolute;
-                }
+             .popup {
+                 width: 450px;
+                 position: relative;
+                 z-index: 2;
+             }
 
-                .hover-1 {
-                    left: 50%;
-                    transform: translate(-50%);
-                    top: 40%;
-                    z-index: 3;
-                }
+             .hover-1,
+             .hover-2,
+             .hover-3 {
+                 position: absolute;
+             }
 
-                .hover-2 {
-                    top: 30px;
-                    left: -60px;
-                }
+             .hover-1 {
+                 left: 50%;
+                 transform: translate(-50%);
+                 top: 40%;
+                 z-index: 3;
+                 width: 70px;
+             }
 
-                .hover-3 {
-                    bottom: -60px;
-                    right: -10px;
-                }
-            }
+             .hover-2 {
+                 top: 30px;
+                 left: -60px;
+             }
 
-            .description-enjoy {
-                margin-left: 4rem;
-                 
-                p {
-                    color: $edward;
+             .hover-3 {
+                 bottom: -60px;
+                 right: -10px;
+             }
+         }
 
-                    span {
-                        color: $cod-gray;
-                    }
-                }
+         .description-enjoy {
+             margin-left: 4rem;
+             width: 50%;
 
-                h2 {
-                    color: $cod-gray;
-                    padding: 1rem 0;
-                }
+             p {
+                 color: $edward;
 
-                .download {
-                    padding-top: 2rem;
+                 span {
+                     color: $cod-gray;
+                 }
+             }
 
-                    a {
-                        text-decoration: underline;
-                        text-decoration-color: $edward;
-                    }
-                }
-            }
-        }
+             h2 {
+                 color: $cod-gray;
+                 padding: 1rem 0;
+             }
+
+             .download {
+                 padding-top: 2rem;
+
+                 a {
+                     text-decoration: underline;
+                     text-decoration-color: $edward;
+                 }
+             }
+         }
+     }
     }
+     
+ }
 
-    .section-3 {
-        margin: 4rem 0;
-    }
+ .section-3 {
+     padding: 4rem 0;
+     background-color: $hint-of-red;
+     margin-bottom: 4rem;
+
+     .row {
+         @include flex(row, center, stretch, nowrap);
+         gap: 3rem;
 
 
+         .col {
+             width: calc(100% / 3);
 
+         }
+     }
 
+     .titles {
+         position: relative;
 
+         p {
+             font-size: 1rem;
+             color: black;
+         }
+
+         .decoration,
+         .decoration-1 {
+             width: 80px;
+             position: absolute;
+         }
+
+         .decoration {
+            left: 70px;
+            top: 85px;
+
+         }
+
+         .decoration-1 {
+            right: 50px;
+            top: 70px;
+         }
+
+     }
+ }
+
+ .section-4 {
+    
+ }
 </style>

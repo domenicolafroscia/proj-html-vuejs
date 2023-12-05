@@ -24,12 +24,27 @@ ul {
     margin: 0 auto;
 }
 
+.btn {
+    text-align: center;
+    margin-top: 4rem;
+
+    button {
+        background-color: $mountain-meadow;
+        border: none;
+        padding: .8rem 3rem;
+        border-radius: 5px;
+        color: $white;
+        cursor: pointer;
+    }
+}
+
 .titles {
     text-align: center;
 
     p {
         color: $shady-lady;
         padding-bottom: 1rem;
+        font-size: .7rem;
     }
 
     h2 {
