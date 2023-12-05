@@ -112,6 +112,23 @@ export default {
                     numbers: '1090',
                     objects: 'BLOG POSTS',
                 },
+            ],
+            blogs: ['Become a Better Blogger: Content Planning', 'Promoting Your Online Business on Pinterest', 'Gamification and Game-Based Learning', "Designing an Online Course from Experet's Perspective", 'Why Online Courses Are the Future of Education'],
+            cardBlogs: [
+                {
+                    img: 'artist-blog-03-480x352.jpeg',
+                    task: 'ARTIST',
+                    description: 'Brush Strokes Energize Trees in Paintings',
+                    date: 'May 15, 2020',
+                    views: '688 views',
+                },
+                {
+                    img: 'artist-blog-01-480x352.jpg',
+                    task: 'ARTIST',
+                    description: 'Pocket-Sized Notebooks Hold Miniature Paintings',
+                    date: 'May 15, 2020',
+                    views: '603 views',
+                },
             ]
         };
     },
@@ -209,6 +226,7 @@ export default {
         </div>
     </section>
 
+
     <section class="section-4">
         <div class="container">
             <div class="row">
@@ -220,9 +238,51 @@ export default {
             </div>
         </div>
     </section>
+
+
+    <section class="section-5">
+        <div class="container">
+            <div class="blogs">
+                <div class="best-blogs">
+                    <p>ENJOYABLE INSIGHTS</p>
+                    <h3><strong>Most Viewed</strong> <a class="title-green" href="">Best Blogs</a></h3>
+                    <ul>
+                        <li v-for="(blog, index) in blogs" :key="index"><a class="link-blogs"
+                                href=""><strong><span>&rightarrow;</span>{{ blog }}</strong></a></li>
+                    </ul>
+                </div>
+                <div class="card-blogs">
+                    <div class="row">
+                        <div class="col" v-for="card in cardBlogs" :key="card">
+                            <div class="card">
+                                <img :src="getImagePath(card.img)" alt="">
+                                <div class="text-card">
+                                    <p>{{ card.task }}</p>
+                                    <h4><a href="">{{ card.description }}</a></h4>
+                                    <span class="date"><i class="fa-regular fa-calendar"></i>{{ card.date }}</span>
+                                    <span><i class="fa-solid fa-eye"></i>{{ card.views }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-6">
+        <div class="container">
+            <div class="titles">
+                <h2>Subscribe <a class="title-green" href="">Newsletter</a></h2>
+                <p>MAXCOACH AVAILABLE COURSES</p>
+            </div>
+        </div>
+    </section>
 </template>
 
-<style scoped lang="scss"> @use "../style/partials/variables" as *;
+<style scoped lang="scss">
+@use "../style/partials/variables" as *;
  @use "../style/partials/mixin" as *;
  @import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -284,107 +344,108 @@ export default {
  .section-2 {
      background-color: $hint-of-red;
 
-    .background {
-        background-color: $white;
-        border-radius: 0 0 70% 0;
-        padding-bottom: 5rem;
+     .background {
+         background-color: $white;
+         border-radius: 0 0 70% 0;
+         padding-bottom: 5rem;
 
-        .row {
-         @include flex(row, center, stretch, nowrap);
-         margin-top: 4rem;
+         .row {
+             @include flex(row, center, stretch, nowrap);
+             margin-top: 4rem;
 
-         .col {
-             width: calc(100% / 3);
+             .col {
+                 width: calc(100% / 3);
 
-             img {
-                 width: 140px;
+                 img {
+                     width: 140px;
+                 }
+
+                 .description {
+                     padding-top: 1rem;
+
+                     p {
+                         padding: 1rem 0;
+                     }
+
+                     a {
+                         color: $outer-space;
+                     }
+                 }
+
+             }
+         }
+
+         .enjoy {
+             padding-top: 2rem;
+             display: flex;
+             align-items: center;
+
+
+             .img-enjoy {
+                 position: relative;
+
+                 .popup {
+                     width: 450px;
+                     position: relative;
+                     z-index: 2;
+                 }
+
+                 .hover-1,
+                 .hover-2,
+                 .hover-3 {
+                     position: absolute;
+                 }
+
+                 .hover-1 {
+                     left: 50%;
+                     transform: translate(-50%);
+                     top: 40%;
+                     z-index: 3;
+                     width: 70px;
+                 }
+
+                 .hover-2 {
+                     top: 30px;
+                     left: -60px;
+                 }
+
+                 .hover-3 {
+                     bottom: -60px;
+                     right: -10px;
+                 }
              }
 
-             .description {
-                 padding-top: 1rem;
+             .description-enjoy {
+                 margin-left: 4rem;
+                 width: 50%;
 
                  p {
+                     color: $edward;
+
+                     span {
+                         color: $cod-gray;
+                     }
+                 }
+
+                 h2 {
+                     color: $cod-gray;
                      padding: 1rem 0;
                  }
 
-                 a {
-                     color: $outer-space;
-                 }
-             }
+                 .download {
+                     padding-top: 2rem;
 
-         }
-     }
-
-     .enjoy {
-         padding-top: 2rem;
-         display: flex;
-         align-items: center;
-
-
-         .img-enjoy {
-             position: relative;
-
-             .popup {
-                 width: 450px;
-                 position: relative;
-                 z-index: 2;
-             }
-
-             .hover-1,
-             .hover-2,
-             .hover-3 {
-                 position: absolute;
-             }
-
-             .hover-1 {
-                 left: 50%;
-                 transform: translate(-50%);
-                 top: 40%;
-                 z-index: 3;
-                 width: 70px;
-             }
-
-             .hover-2 {
-                 top: 30px;
-                 left: -60px;
-             }
-
-             .hover-3 {
-                 bottom: -60px;
-                 right: -10px;
-             }
-         }
-
-         .description-enjoy {
-             margin-left: 4rem;
-             width: 50%;
-
-             p {
-                 color: $edward;
-
-                 span {
-                     color: $cod-gray;
-                 }
-             }
-
-             h2 {
-                 color: $cod-gray;
-                 padding: 1rem 0;
-             }
-
-             .download {
-                 padding-top: 2rem;
-
-                 a {
-                     text-decoration: underline;
-                     text-decoration-color: $edward;
+                     a {
+                         text-decoration: underline;
+                         text-decoration-color: $edward;
+                     }
                  }
              }
          }
      }
-    }
-     
+
  }
+
 
  .section-3 {
      padding: 4rem 0;
@@ -416,41 +477,133 @@ export default {
          }
 
          .decoration {
-            left: 70px;
-            top: 85px;
+             left: 70px;
+             top: 85px;
 
          }
 
          .decoration-1 {
-            right: 50px;
-            top: 70px;
+             right: 50px;
+             top: 70px;
          }
 
      }
  }
 
+
  .section-4 {
 
-    .row {
-        @include flex(row, center, stretch, nowrap);
+     .row {
+         @include flex(row, center, stretch, nowrap);
 
-        .col {
-           text-align: center;
-           border-right: 1px solid $hint-of-red;
-           border-left: 1px solid $hint-of-red;
-           padding: 5rem 2rem;
+         .col {
+             text-align: center;
+             border-right: 1px solid $hint-of-red;
+             border-left: 1px solid $hint-of-red;
+             padding: 5rem 2rem;
 
-           h2 {
-            color: $mountain-meadow;
-            font-size: 2rem;
-            padding: 1rem 0;
-           }
+             h2 {
+                 color: $mountain-meadow;
+                 font-size: 2rem;
+                 padding: 1rem 0;
+             }
 
-           p {
-            color: $edward;
-            font-size: .7rem;
-           }
+             p {
+                 color: $edward;
+                 font-size: .7rem;
+             }
+         }
+     }
+ }
+
+
+ .section-5 {
+     background-color: #f5f1ed;
+     padding: 4rem 0;
+
+    .blogs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .best-blogs {
+            padding-right: 4rem;
+
+            p {
+                color: $edward;
+                font-size: .7rem
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                padding: 1rem 0;
+            }
+
+            li {
+                padding: .5rem 0;
+
+                .link-blogs {
+                    color: $cod-gray;
+
+                    span {
+                        padding-right: 5px;
+                    }
+
+                }
+            }
+        }
+
+        .card-blogs {
+            .row {
+                @include flex(row, center, stretch, nowrap);
+                gap: 2rem;
+
+                .col {
+                    .card {
+                        background-color: $white;
+                        width: 250px;
+
+                        .text-card {
+                            padding: 1.5rem;
+
+                            p {
+                                color: $edward;
+                                font-size: .7rem;
+                            }
+
+                            h4 {
+                                padding-top: .5rem;
+                                padding-bottom: 1rem;
+                                
+                                a {
+                                    color: $cod-gray;
+                                }
+                            }
+
+                            span {
+                                font-size: .7rem;
+                                color: $edward;
+
+                                i {
+                                    padding-right: 5px;
+                                }
+                            }
+
+                            .date {
+                               padding-right: 10px;
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
         }
     }
+ }
+
+
+ .section-6 {
+
  }
 </style>
