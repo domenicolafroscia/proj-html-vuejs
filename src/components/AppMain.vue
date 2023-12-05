@@ -275,8 +275,15 @@ export default {
         <div class="container">
             <div class="titles">
                 <h2>Subscribe <a class="title-green" href="">Newsletter</a></h2>
-                <p>MAXCOACH AVAILABLE COURSES</p>
+                <p class="newsletter">Enter your email address to register to our newsletter subscription delivered on a regular basis!</p>
             </div>
+            <div class="email-btn">
+                <input type="email" placeholder="Enter your email" id="site-search" name="" />
+                <button>Subscribe</button>
+            </div>
+            <img class="details-1" src="../assets/img/maxcoach-shape-02.png" alt="">
+            <img class="details-2" src="../assets/img/maxcoach-shape-02.png" alt="">
+            <img class="details-3" src="../assets/img/maxcoach-shape-09.png" alt="">
         </div>
     </section>
 </template>
@@ -604,6 +611,57 @@ export default {
 
 
  .section-6 {
+    padding: 4rem 0;
+    position: relative;
+    .newsletter {
+        font-size: .9rem;
+        color: $cod-gray;
+        padding-top: 1rem;
+    }
 
+    .email-btn {
+        text-align: center;
+        padding-top: 1rem;
+
+        input {
+            height: 40px;
+            background-color: $hint-of-red;
+            border: none;
+            width: 35%;
+            border-radius: 5px 0 0 5px;
+        }
+
+        button {
+            color: $white;
+            height: 40px;
+            border: none;
+            background: $mountain-meadow;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            padding: .5rem 1rem;
+        }
+    }
+
+    .details-1, .details-2, .details-3 {
+        position: absolute;
+    }
+
+    .details-1 {
+        top: 60px;
+        width: 80px;
+    }
+
+    .details-2 {
+        bottom: 50px;
+        right: 180px;
+        width: 80px;
+    }
+
+    .details-3 {
+        width: 100px;
+        bottom: 90px;
+        right: 190px;
+        color: $edward;
+    }
  }
 </style>
