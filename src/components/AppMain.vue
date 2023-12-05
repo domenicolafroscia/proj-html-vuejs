@@ -214,8 +214,8 @@ export default {
             <div class="row">
                 <div class="col" v-for="result in results" :key="result">
                     <h3>{{ result.name }}</h3>
-                    <h2>{{ result.numbers }}</h2>
-                    <p>{{ result.objects }}</p>
+                    <h2><strong>{{ result.numbers }}</strong></h2>
+                    <p><strong>{{ result.objects }}</strong></p>
                 </div>
             </div>
         </div>
@@ -389,7 +389,6 @@ export default {
  .section-3 {
      padding: 4rem 0;
      background-color: $hint-of-red;
-     margin-bottom: 4rem;
 
      .row {
          @include flex(row, center, stretch, nowrap);
@@ -431,6 +430,27 @@ export default {
  }
 
  .section-4 {
-    
+
+    .row {
+        @include flex(row, center, stretch, nowrap);
+
+        .col {
+           text-align: center;
+           border-right: 1px solid $hint-of-red;
+           border-left: 1px solid $hint-of-red;
+           padding: 5rem 2rem;
+
+           h2 {
+            color: $mountain-meadow;
+            font-size: 2rem;
+            padding: 1rem 0;
+           }
+
+           p {
+            color: $edward;
+            font-size: .7rem;
+           }
+        }
+    }
  }
 </style>
