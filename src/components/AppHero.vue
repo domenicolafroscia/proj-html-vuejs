@@ -115,20 +115,21 @@ export default {
                 z-index: 2;
             }
 
+
+            .decoration-1, .decoration-2, .decoration-3, .decoration-4 {
+                position: absolute;
+            }
             .decoration-1 {
                 width: 90px;
-                position: absolute;
                 top: 100px;
             }
 
             .decoration-2 {
-                position: absolute;
                 bottom: 7px;
                 left: 270px;
             }
 
             .decoration-3 {
-                position: absolute;
                 top: 135px;
                 left: -65px;
                 width: 120px;
@@ -136,7 +137,6 @@ export default {
             }
 
             .decoration-4 {
-                position: absolute;
                 bottom: 105px;
                 left: -65px;
                 width: 120px;

@@ -1,4 +1,5 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "../style/partials/variables";
 
 * {
     padding: 0;
@@ -18,8 +19,24 @@ ul {
     list-style: none;
 }
 
-
 .container {
     width: 70%;
     margin: 0 auto;
+}
+
+.titles {
+    text-align: center;
+
+    p {
+        color: $shady-lady;
+        padding-bottom: 1rem;
+    }
+
+    h2 {
+        color: $cod-gray;
+    }
+}
+
+.title-green {
+    color: $mountain-meadow;
 }
